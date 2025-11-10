@@ -57,12 +57,10 @@ class Record:
             return True
         return False
 
-    def edit_phone(self, old_phone: str | Phone, new_phone: str | Phone) -> bool:
-        old_instance = old_phone if isinstance(old_phone, Phone) else Phone(old_phone)
-        new_instance = new_phone if isinstance(new_phone, Phone) else Phone(new_phone)
+    def edit_phone(self, old_phone: str, new_phone: str ) -> bool:
         for i, p in enumerate(self.phones):
-            if old_instance == p:
-                self.phones[i] = new_instance
+            if old_phone == p.value:
+                p.value = new_phone
                 return True
         return False
 
